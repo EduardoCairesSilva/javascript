@@ -1,12 +1,12 @@
-let carros = [
-    { name: "Relampago Marquinhos", velocidade: 0, distancia: 0 },
-    { name: "Opala Preto", velocidade: 0, distancia: 0 },
-    { name: "Uno com escada no teto", velocidade: 0, distancia: 0 }
-];
-
 function defineVelocidade(velocidade) {
     return parseInt(velocidade + (Math.random() * 10) + 1);
 }
+
+let carros = [
+    { name: "Relampago Marquinhos", velocidade: defineVelocidade(0), distancia: 0 },
+    { name: "Opala Preto", velocidade: defineVelocidade(0), distancia: 0 },
+    { name: "Uno com escada no teto", velocidade: defineVelocidade(0), distancia: 0 }
+];
 
 function atualizaCorrida() {
 
