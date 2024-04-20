@@ -33,4 +33,4 @@ function atualizaCorrida() {
 }
 
 
-let interval = setInterval(atualizaCorrida, 10);
+let interval = setInterval(atualizaCorrida, 100);
