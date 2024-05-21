@@ -48,4 +48,3 @@ function f2Callback() {
 function f3Callback() {
     console.log('Olá mundo!')
 }
-
