@@ -28,5 +28,5 @@ function criaPessoa(nome, sobrenome, altura, peso) {
 }
 
 const p1 = criaPessoa('Eduardo', 'Caires', 1.8, 80);
-p1.nomeCompleto = 'Alice Caires Silva'
+p1.nomeCompleto = 'Alice Caires Soares'
 console.log(p1.nomeCompleto)
