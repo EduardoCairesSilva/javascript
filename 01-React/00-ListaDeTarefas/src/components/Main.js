@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import Form from './Form';
 import Tarefas from './Tarefas';
 
-import './Main.css'
+import './Main.css';
 
 export default class Main extends Component {
   state = {
     novaTarefa: '',
     tarefas: [],
-    index: -1,
+    index: -1
   };
 
   handleSubmit = (e) => {
@@ -25,21 +25,21 @@ export default class Main extends Component {
     if (index === -1) {
       this.setState({
         tarefas: [...novasTarefas, novaTarefa],
-        novaTarefa: '',
+        novaTarefa: ''
       });
     } else {
       novasTarefas[index] = novaTarefa;
 
       this.setState({
         tarefas: [...novasTarefas],
-        index: -1,
+        index: -1
       });
-    }
+    };
   };
 
   handleChange = (e) => {
     this.setState({
-      novaTarefa: e.target.value,
+      novaTarefa: e.target.value
     });
   };
 
@@ -55,20 +55,12 @@ export default class Main extends Component {
   handleDelete = (e, index) => {
     const { tarefas } = this.state;
     const novasTarefas = [...tarefas];
-    novasTarefas.splice(index, 1);
+    novasTarefas.splice(index, 1)
 
     this.setState({
       tarefas: [...novasTarefas]
     });
   };
-
-  componentDidMount() {
-    const tarefas = JSON.parse(localStorage.getItem('tarefas'));
-
-    if (!tarefas) return;
-
-    this.setState({ tarefas })
-  }
 
   componentDidUpdate(prevProps, prevState) {
     const { tarefas } = this.state;
@@ -76,7 +68,15 @@ export default class Main extends Component {
     if (tarefas === prevState.tarefas) return;
 
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
-  }
+  };
+
+  componentDidMount() {
+    const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+
+    if (!tarefas) return;
+
+    this.setState({ tarefas });
+  };
 
   render() {
     const { novaTarefa, tarefas } = this.state;
@@ -90,7 +90,6 @@ export default class Main extends Component {
           handleChange={this.handleChange}
           novaTarefa={novaTarefa}
         />
-
         <Tarefas
           tarefas={tarefas}
           handleEdit={this.handleEdit}
@@ -98,5 +97,5 @@ export default class Main extends Component {
         />
       </div>
     );
-  }
-}
+  };
+};
